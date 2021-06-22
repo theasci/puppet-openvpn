@@ -9,7 +9,6 @@
 * [`openvpn::config`](#openvpnconfig): This class sets up the openvpn enviornment as well as the default config file
 * [`openvpn::deploy::install`](#openvpndeployinstall): Installs the Openvpn profile
 * [`openvpn::deploy::prepare`](#openvpndeployprepare): Base profile
-* [`openvpn::deploy::service`](#openvpndeployservice): Base profile
 * [`openvpn::install`](#openvpninstall): This module installs the openvpn service, configures vpn endpoints, generates client certificates, and generates client config files
 * [`openvpn::service`](#openvpnservice): This class maintains the openvpn service.
 
@@ -17,7 +16,7 @@
 
 * [`openvpn::ca`](#openvpnca): This define creates the openvpn ca and ssl certificates
 * [`openvpn::client`](#openvpnclient): This define creates client certs for a specified server as well as a tarball that can be directly imported into clients
-* [`openvpn::client_specific_config`](#openvpnclient_specific_config): This feature is explained here: http://openvpn.net/index.php/open-source/documentation/howto.html#policy All the parameters are explained in 
+* [`openvpn::client_specific_config`](#openvpnclient_specific_config): This feature is explained here: http://openvpn.net/index.php/open-source/documentation/howto.html#policy All the parameters are explained in
 * [`openvpn::deploy::client`](#openvpndeployclient): Collect the exported configs for an Host and ensure a running Openvpn Service
 * [`openvpn::deploy::export`](#openvpndeployexport): Prepare all Openvpn-Client-Configs to be exported
 * [`openvpn::revoke`](#openvpnrevoke): This define creates a revocation on a certificate for a specified server.
@@ -31,7 +30,7 @@ This module installs the openvpn service, configures vpn endpoints, generates cl
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 class { 'openvpn':
@@ -199,7 +198,7 @@ Base profile
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 include openvpn::deploy::prepare
@@ -214,10 +213,6 @@ The following parameters are available in the `openvpn::deploy::prepare` class.
 Data type: `Stdlib::Absolutepath`
 
 Path of the configuration directory.
-
-### openvpn::deploy::service
-
-Base profile
 
 ### openvpn::install
 
@@ -235,7 +230,7 @@ This define creates the openvpn ca and ssl certificates
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 openvpn::ca {
@@ -373,7 +368,7 @@ This define creates client certs for a specified server as well as a tarball tha
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 openvpn::client {
@@ -688,7 +683,7 @@ All the parameters are explained in the openvpn documentation http://openvpn.net
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 openvpn::client_specific_config {
@@ -788,7 +783,7 @@ Collect the exported configs for an Host and ensure a running Openvpn Service
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 openvpn::deploy::client { 'test-client':
@@ -814,13 +809,21 @@ should the /etc/openvpn directory be managed? (warning, all unmanaged files will
 
 Default value: `true`
 
+##### `manage_service`
+
+Data type: `Boolean`
+
+should the openvpn service be managed?
+
+Default value: `true`
+
 ### openvpn::deploy::export
 
 Prepare all Openvpn-Client-Configs to be exported
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 openvpn::deploy::export { 'test-client':
@@ -852,7 +855,7 @@ This define creates a revocation on a certificate for a specified server.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 openvpn::client {
@@ -861,7 +864,7 @@ openvpn::client {
 }
 ```
 
-##### 
+#####
 
 ```puppet
 openvpn::revoke {
@@ -1741,4 +1744,3 @@ Data type: `Variant[Boolean, Integer]`
 
 
 Default value: `false`
-
